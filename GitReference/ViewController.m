@@ -8,7 +8,10 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
+@property (nonatomic,strong)UIScrollView *propertyScrollView;
+@property (nonatomic, strong)UILabel *propertyTitleLabel;
 
 @end
 
@@ -17,15 +20,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIScrollView *scrollView = [UIScrollView new];
-    scrollView.frame = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height);
-    [self.view addSubview:scrollView];
-    scrollView.alwaysBounceVertical = YES;
+ self.propertyScrollView = [UIScrollView new];
+    self.propertyScrollView.frame = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height);
+    [self.view addSubview:self.propertyScrollView];
+    self.propertyScrollView.alwaysBounceVertical = YES;
+   
+    self.propertyTitleLabel = [UILabel new];
+    self.propertyTitleLabel.frame = CGRectMake(15, 20, self.view.frame.size.width -30, 40);
+    self.propertyTitleLabel.text = @"GitReference";
+//    self.propertyTitleLabel.layer.borderColor = (__bridge CGColorRef)([UIColor greenColor]);
+//    self.propertyTitleLabel.layer.borderWidth = 3.0;
+    [self.propertyScrollView addSubview:self.propertyTitleLabel];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, self.view.frame.size.width -15, 40)];
-    titleLabel.text = @"GitReference";
-    
-    
+
 
 }
 
